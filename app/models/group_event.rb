@@ -9,11 +9,11 @@ class GroupEvent < ApplicationRecord
 
   def require_if_publish
     if self.status=="Publish"
-      if start_at.present? & end_at.present?
+      if self.start_at.present? & self.end_at.present?
         invalid_date_range = start_at.to_datetime >= end_at.to_datetime
-        errors.add("Start & End Date", " are invalid.") if invalid_date_range 
+        return errors.add("Start & End Date", " are invalid.") if invalid_date_range 
       end
-      valid = name.present? & description.present? & start_at.present? & end_at.present? & location.present?
+      valid = self.name.present? & self.description.present? & self.start_at.present? & self.end_at.present? & self.location.present?
       errors.add("All fields", " are required") unless valid
     end
   end

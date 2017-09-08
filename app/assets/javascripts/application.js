@@ -29,19 +29,22 @@ $(document).ready(function() {
 });
 
 function call_datepicker(){
-  // $('.datepicker').datetimepicker();
-  $('#startdate,#enddate').datetimepicker({
-    useCurrent: false,
-    minDate: moment()
-});
-$('#startdate').datetimepicker().on('dp.change', function (e) {
-    var incrementDay = moment(new Date(e.date));
-    incrementDay.add(1, 'days');
-    $('#enddate').data('DateTimePicker').minDate(incrementDay);
-    $(this).data("DateTimePicker").hide();
-});
+  $('#startdate').datetimepicker({
+      format: "YYYY-MM-DD h:mm:ss",
+      useCurrent: false,
+      minDate: moment()
+  }).on('dp.change', function (e) {
+      var incrementDay = moment(new Date(e.date));
+      incrementDay.add(1, 'days');
+      $('#enddate').data('DateTimePicker').minDate(incrementDay);
+      $(this).data("DateTimePicker").hide();
+  });
 
-$('#enddate').datetimepicker().on('dp.change', function (e) {
+  $('#enddate').datetimepicker({
+      format: "YYYY-MM-DD h:mm:ss",
+      useCurrent: false,
+      minDate: moment()
+  }).on('dp.change', function (e) {
         var decrementDay = moment(new Date(e.date));
         decrementDay.subtract(1, 'days');
         $('#startdate').data('DateTimePicker').maxDate(decrementDay);
