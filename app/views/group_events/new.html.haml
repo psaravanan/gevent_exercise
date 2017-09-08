@@ -1,0 +1,49 @@
+.row
+  .col-md-8
+    =form_for @gevent do |f|
+      - @gevent.errors.each do |k, v|
+        .alert.alert-danger
+          %strong= "#{k}!"
+          = v
+      .form-group
+        %label.col-form-label Name
+        =f.text_field :name, class: "form-control", placeholder: "Enter Group event name"
+      .form-group
+        %label.col-form-label Description
+        =f.text_area :description, class: "form-control", placeholder: "Please enter description", rows: 7
+      .form-row
+        .form-group.col-6
+          %label.col-form-label Start Date
+          =f.text_field :start_at, class: "form-control datepicker", placeholder: "Select Start Date"
+        .form-group.col-6
+          %label.col-form-label End Date
+          =f.text_field :end_at, class: "form-control datepicker", placeholder: "Select End Date"
+      .form-group
+        %label.col-form-label Location
+        =f.text_field :location, class: "form-control", placeholder: "Please enter event location"
+      .form-group
+        %label.col-form-label Status
+        %div
+          %label.custom-control.custom-radio
+            =f.radio_button :status, "Draft", class: "custom-control-input", placeholder: "Location", checked: true
+            %span.custom-control-indicator
+            %span.custom-control-description Draft
+          %label.custom-control.custom-radio
+            =f.radio_button :status, "Publish", class: "custom-control-input", placeholder: "Location"
+            %span.custom-control-indicator
+            %span.custom-control-description Publish
+      %button.btn.btn-primary{:type => "submit"} Create Event
+  .col-md-4.random_gevents
+    %h3 Random Events
+    %table.table.table-responsive
+      %thead
+        %tr
+          %th Name
+          %th Start Date
+          %th End Date
+      %tbody
+        - @random_events.each do |revent|
+          %tr
+            %th= revent.name
+            %td= revent.start_at
+            %td= revent.end_at

@@ -1,0 +1,12 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a.navbar-brand{:href => root_path}
+    %img.d-inline-block.align-top{:alt => "", :src => "/assets/gevent_logo.png", :width => "60"}/
+    GEvent
+  %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavAltMarkup", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNavAltMarkup.collapse.navbar-collapse
+    .navbar-nav
+      %a.nav-item.nav-link.active{:href => "#"}
+        Home
+        %span.sr-only (current)
+      %a.nav-item.nav-link{:href => group_events_path} Group Events

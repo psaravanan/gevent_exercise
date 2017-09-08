@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap';
+
+.main_container{
+  margin-top: 10px;
+}
+.random_gevents{
+  background: #f8f9fa;
+  padding: 20px 10px;
+}
+footer{
+  background: #f8f9fa;
+  padding: 20px;
+  margin-top: 20px;
+}
+.add_ge{
+  margin-bottom: 10px;
+  float: right;
+}
+.add_ge:hover{
+  a{
+    color: white;
+  }
+}
+.add_ge a:hover{
+  color: white;
+  text-decoration: none;
+}
