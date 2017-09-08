@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   root to: "group_events#index"
   resources :group_events
 
+  namespace :api do
+    namespace :v1 do
+      resources :group_events
+    end
+  end
+
 end
