@@ -11,13 +11,21 @@
       .form-group
         %label.col-form-label Description
         =f.text_area :description, class: "form-control", placeholder: "Please enter description", rows: 7
-      .form-row
-        .form-group.col-6
+      .form-group.row
+        .col-md-6
           %label.col-form-label Start Date
-          =f.text_field :start_at, class: "form-control datepicker", placeholder: "Select Start Date"
-        .form-group.col-6
+          #startdate.input-group.date
+            =f.text_field :start_at, class: "form-control datepicker", placeholder: "Select Start Date"
+            %span.input-group-addon
+              %span.glyphicon-calendar.glyphicon
+        .col-md-6
           %label.col-form-label End Date
-          =f.text_field :end_at, class: "form-control datepicker", placeholder: "Select End Date"
+          #enddate.input-group.date
+            =f.text_field :end_at, class: "form-control datepicker", placeholder: "Select End Date"
+            %span.input-group-addon
+              %span.glyphicon-calendar.glyphicon
+
+
       .form-group
         %label.col-form-label Location
         =f.text_field :location, class: "form-control", placeholder: "Please enter event location"
